@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\Middleware;
 use App\Models\User;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\View\View;
@@ -14,6 +13,11 @@ class UserController extends Controller implements HasMiddleware
     {
         return view('user.profile',[
             'user' => User::findOrFail($id)
+        ]);
+    }
+    public function profile():View{
+        return view('user.profile',[
+            'user' => auth()->user()
         ]);
     }
     
