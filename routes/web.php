@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
+
 use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view('welcome');
@@ -12,3 +14,4 @@ Route::get('/user/{id}',[UserController::class,'show']);
 //rota::metodo('onde',[classe,'metodo_classe'])->middleware('auth');
 //pra ver o proprio perfil requer autenticação.
 Route::get('/profile',[UserController::class,'profile']) ->middleware('auth');
+
